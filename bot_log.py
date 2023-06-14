@@ -6,7 +6,7 @@ DISCORD_LOGS_URL = os.environ.get('DISCORD_LOGS_URL', config.DISCORD_LOGS_URL)
 DISCORD_ERR_URL = os.environ.get('DISCORD_ERR_URL', config.DISCORD_ERR_URL)
 
 
-#Лог новых ордеров
+#Log new order
 def webhook_order(msg):
     if "LONG" in msg:
         webhook = DiscordWebhook(url=config.DISCORD_ORDER_URL)
@@ -18,7 +18,7 @@ def webhook_order(msg):
         embed = DiscordEmbed(description=msg, color='FF0000')
         webhook.add_embed(embed)
         response = webhook.execute()
-# Лог ордеров
+# Log order
 def webhook(msg,data,account):
    webhook = DiscordWebhook(url=config.DISCORD_LOGS_URL)
    embed = DiscordEmbed(title=account, description=msg, color='FFFFFF')
@@ -31,7 +31,7 @@ def webhook_log(msg):
     response = webhook.execute()
 
 
-# Лог ошибок
+# Log Err
 def webhook_err(msg):
     webhook = DiscordWebhook(url=config.DISCORD_ERR_URL)
     embed = DiscordEmbed(description=msg, color='FF2700')
@@ -39,7 +39,7 @@ def webhook_err(msg):
     response = webhook.execute()
 
 
-# Вывод србытий + Discord
+# Log + Discord
 def logs(msg,data):
     account = data["subaccount"]
     webhook(msg,data, account)

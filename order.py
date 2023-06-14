@@ -21,10 +21,10 @@ def get_position(data,session):
 
 
      if positions["retMsg"] == 'OK':
-         # Смотрим открытые ордера по даной паре
+
          if size > '0' :
                  if side == 'Buy':
-                     print('Имеем LONG ', symbol, size)
+                     print('There is LONG ', symbol, size)
                      if sideHok == 'Sell':
                          if descHok == 'Close_LONG':
                              bot_log.logs_order("======= Close LONG =======")
@@ -34,16 +34,16 @@ def get_position(data,session):
                              qtyHok = qtyHok * 2
                              bot_log.logs_order("======= Open SHORT and Close LONG =======")
                              bybit.short_order(data,qtyHok,session)
-                         else:  bot_log.logs("======= Ошибка! Не одно условие не выполнено! =======")
+                         else:  bot_log.logs("======= error! error! =======")
                      elif data['side'] == 'Buy':
                          if descHok == 'Open_LONG':
-                             bot_log.logs_order("========== Ошибка! У нас  LONG уже есть!  ==========")
+                             bot_log.logs_order("========== error! There is  LONG !  ==========")
                          elif descHok == 'Close_SHORT':
-                             bot_log.logs_order("========== Ошибка! У нас нет SHORT!  ==========")
+                             bot_log.logs_order("========== error! No SHORT!  ==========")
                          else:
-                             bot_log.logs_order("======= Ошибка! Не одно условие не выполнено! =======")
+                             bot_log.logs_order("======= error! error! =======")
                  elif side == 'Sell':
-                     print('Имеем SHORT ', symbol, size)
+                     print('There is SHORT ', symbol, size)
                      if sideHok == 'Buy':
                          if descHok == 'Close_SHORT':
                              bot_log.logs_order("========== Close SHORT ==========")
@@ -55,22 +55,22 @@ def get_position(data,session):
                              bybit.long_order(data,qtyHok,session)
                      elif data['side'] == 'Sell':
                          if descHok == 'Open_SHORT':
-                             bot_log.logs_order("========== Ошибка! SHORT уже есть!   ==========")
+                             bot_log.logs_order("========== error! There is  SHORT !   ==========")
                          elif descHok == 'Close_LONG':
-                             bot_log.logs_order("========== Ошибка! у нас нет LONG!   ==========")
+                             bot_log.logs_order("========== error! No LONG!   ==========")
          else:
              if data['side'] == 'Buy':
                  if descHok == 'Open_LONG':
                      bot_log.logs_order("========== Open LONG  ==========")
                      bybit.long_order(data, qtyHok,session)
                  elif descHok == 'Close_SHORT':
-                     bot_log.logs_order("========== Ошибка! у нас нет SHORT!  ==========")
+                     bot_log.logs_order("========== error! No SHORT!  ==========")
              elif data['side'] == 'Sell':
                  if descHok == 'Open_SHORT':
                      bot_log.logs_order("========== Open SHORT  ==========")
                      bybit.short_order(data, qtyHok,session)
                  elif descHok == 'Close_LONG':
-                     bot_log.logs_order("========== Ошибка! у нас нет LONG!   ==========")
+                     bot_log.logs_order("========== error! No LONG!  ==========")
 
 
 
@@ -78,6 +78,6 @@ def get_position(data,session):
              "success": True,
              "message": "Data accepted",
 
-             "success1": bot_log.logs("======= Webhook Обработан =======",data)
+             "success1": bot_log.logs("======= Webhook accepted =======",data)
              }
 

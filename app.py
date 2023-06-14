@@ -5,7 +5,7 @@ from pybit.unified_trading import HTTP
 import logging
 import order
 
-# Логирование
+# LOGS
 logging.basicConfig(filename="pybit.log", level=logging.DEBUG,
                     format="%(asctime)s %(levelname)s %(message)s")
 
@@ -23,7 +23,7 @@ def bybit_bot():
     # Проверка секретного кода
     webhook_passphrase = os.environ.get('WEBHOOK_PASSPHRASE', config.WEBHOOK_PASSPHRASE)
     if 'passphrase' not in data.keys():
-        bot_log.logs("======== Нет секретного ключа! ========",data)
+        bot_log.logs("======== No passphrase! ========",data)
         return {
             "success": False,
             "message": "No passphrase",
@@ -31,7 +31,7 @@ def bybit_bot():
         }
     # Проверка passphrase  сверяем из фаила конфиг
     if data['passphrase'] != webhook_passphrase:
-        bot_log.logs ("======== Неверный ключ! ========",data)
+        bot_log.logs ("======== invalid passphrase! ========",data)
         return {
             "success": False,
             "message": "invalid passphrase",
@@ -40,7 +40,7 @@ def bybit_bot():
     del data["passphrase"]
 
     bot_log.logsgo(json.dumps(data,indent=4))
-    # ссесия API + Передаем функцию Оповещение ордер создан
+    #  API + subaccount
     if data['subaccount'] == 'Bot3m':
        session = HTTP(testnet=config.Testnet, api_key=config.Api_key_3m, api_secret=config.Api_secret_3m)
        order.get_position(data,session)

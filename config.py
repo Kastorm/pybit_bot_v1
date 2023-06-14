@@ -1,31 +1,16 @@
 
-#Секретный ключ
+#PASSPHRASE
 WEBHOOK_PASSPHRASE = '123'
 
-# Ссылки ботов DISCORD
-# DISCORD_ORDER_URL = 'https://discord.com/api/webhooks/1114409526360277082/iJBMEQDJk-Wi8reYsXL00xo-D88XILTuFCSs6ym7sN4ov088jNInCG2SrQz4iUmvfATI'
-# DISCORD_LOGS_URL = 'https://discord.com/api/webhooks/1114755922854694969/EdPJwUThQFjbyEuW_uqxmZ0ckWl4uAwHK8fv7yJWeOo8lXNqeauhdU41CQOIwMi2IY-k'
-# DISCORD_ERR_URL = 'https://discord.com/api/webhooks/1114756177675436153/S2PO_0y-LD81_DXeTVnFUzKG3nnzmiTnKoGMVMVIounhFlcKJUEz2RsvT8ieeZ8yhBJw'
-#Test
+# Bot DISCORD
 DISCORD_ORDER_URL = 'https://discord.com/api/webhooks/1115267197489647727/wlQ73fqK6HAd4KznG2QkwhVbaLPfB0iOeNI4wdxPOFz3hSPGdoacDl00AuTFFu4in_lz'
 DISCORD_LOGS_URL = 'https://discord.com/api/webhooks/1115267406869307414/WvDjKxMZYoY9lTcT8jisIzqU1Gz2uKB6y614a101Jzjiy_FGdzzRDk4Dpx0eOBRwLYsE'
 DISCORD_ERR_URL = 'https://discord.com/api/webhooks/1115267524569874482/hM3v4lAzTb-acEa5OJJnnKjSh86r6gp2StN0gZl4ZIxJvVNoeP1M3981mAawN_W5U_3b'
 
 
-# Pybi параметры
+# API
 Testnet=True
-# Ключи Gmail
-# Api_key_3m="ERIADFCCLQGDYHEQCZ"
-# Api_secret_3m="HMUFMYJXKEIIFLBRUQFSEGEDIGTCFKRGMVBT"
-# Api_key_5m="QOLUOZFFGBGKZKWWAS"
-# Api_secret_5m="VENGXJDAHFKKGMRWWXQJODUTJSYJYGYVZXAN"
-# Api_key_15m="EWRZLNGWGDGTCRLVNL"
-# Api_secret_15m="QRHGQGDREAJOHQQZWLXLUYSBUTQCSTPZQJVG"
-# Api_key_1H="DUDRPZZPKWHQAUJYXC"
-# Api_secret_1H="WRIQNASHUDKBZVRGEXXKOGSMGEHUGLRSQYTC"
-
-
-# Ключи теснета
+# Your Key
 Api_key_3m="YFCKMEFRBQCMPCHDHY"
 Api_secret_3m="AFJEHBNBPHTFJROZIJTECOYRSXPTAFHNCAUU"
 Api_key_5m="NWHYEPUGMTMBBBNVMG"
@@ -37,10 +22,9 @@ Api_secret_1H="YOQNKAUQTCDIHWVHEGRSBMLYPQJHKASRKWFD"
 
 
 
-
-# Режим фьчерсов
+# Mode linear
 category="linear"
-buyLeverage="100"
-sellLeverage="100"
+buyLeverage="50"
+sellLeverage="50"
 
 
